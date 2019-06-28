@@ -1,9 +1,10 @@
-const request = require('supertest');
 const { parseHttpPacket } = require('./parseHttpPacket');
-const { app } = require('./index');
 
 describe('http', () => {
-  it('returns packet in a string', () => {
-
+  it('returns method', () => {
+    const str = 'GET / HTTP/1.1';
+    const { method, path } = parseHttpPacket(str);
+    expect(method).toEqual('GET');
+    expect(path).toEqual('/');
   });
 });
