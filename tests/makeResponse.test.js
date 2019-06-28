@@ -13,7 +13,5 @@ Content-Type: text/plain
 
 hi
   `);
-
-  // given status and content, getitng the type yet 
   });
 });
