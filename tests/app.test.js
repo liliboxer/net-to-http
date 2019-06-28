@@ -1,4 +1,4 @@
-const { request } = require('supertest');
+const request = require('supertest');
 const { app } = require('../lib/app');
 
 describe('parse request and send from server', () => {
@@ -6,7 +6,7 @@ describe('parse request and send from server', () => {
     return request(app)
       .get('/')
       .then(res => {
-        expect(res.text).toEqual('hi');
+        expect(res.text).toEqual(expect.stringContaining('hi'));
       });
   });
 });
