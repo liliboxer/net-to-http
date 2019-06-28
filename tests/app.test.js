@@ -1,6 +1,7 @@
 const request = require('supertest');
 const { app } = require('../lib/app');
 const { red, green, blue } = require('../utils/color-utils');
+const { notFound } = require('../utils/not-found');
 
 describe('parse request and send from server', () => {
   it('able to parse request', () => {
@@ -54,6 +55,15 @@ describe('parse request and send from server', () => {
       .then(res => {
         expect(res.status).toEqual(200);
         expect(res.body).toEqual(expect.any(Object));
+      });
+  });
+
+  it('everything else returns not found', () => {
+    return request(app)
+      .get('/lili')
+      .then(res => {
+        expect(res.status).toEqual(404);
+        expect(res.text).toEqual(notFound);
       });
   });
 

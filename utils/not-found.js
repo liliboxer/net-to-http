@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+const notFound = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,4 +9,6 @@
 <body>
   <h1>Not Found</h1>
 </body>
-</html>
+</html>`;
+
+module.exports = { notFound };
