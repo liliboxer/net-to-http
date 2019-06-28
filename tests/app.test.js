@@ -9,4 +9,13 @@ describe('parse request and send from server', () => {
         expect(res.text).toEqual(expect.stringContaining('hi'));
       });
   });
+
+  it('POST gets 400 ', () => {
+    return request(app)
+      .post('/')
+      .then(res => {
+        expect(res.status).toEqual(400);
+        expect(res.text).toEqual(expect.stringContaining('sorry'));
+      });
+  });
 });
