@@ -47,4 +47,14 @@ describe('parse request and send from server', () => {
         expect(res.text).toEqual(blue);
       });
   });
+
+  it('/dog returns dog', () => {
+    return request(app)
+      .get('/dog')
+      .then(res => {
+        expect(res.status).toEqual(200);
+        expect(res.body).toEqual(expect.any(Object));
+      });
+  });
+
 });

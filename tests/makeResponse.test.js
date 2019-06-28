@@ -3,7 +3,7 @@ const { makeResponse } = require('../utils/makeResponse');
 describe('makes response', () => {
   it('returns response as string', () => {
     global.Date = jest.fn(() => '1234');
-    const response = makeResponse('200 OK', 'hi', 'plain');
+    const response = makeResponse('200 OK', 'hi', 'text/plain');
     expect(response).toEqual(`HTTP/1.1 200 OK
 Date: ${new Date()}
 Server: Apache
