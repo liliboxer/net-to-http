@@ -1,13 +1,18 @@
-const { request } = require('supertest');
 const { makeResponse } = require('../lib/makeResponse');
-const { app } = require('../lib/app');
 
 describe('makes response', () => {
-  it('path / with GET returns hi', () => {
-    return request(app)
-      .get('/')
-      .then(res => {
-        expect(res.text).toEqual('hi');
-      });
+  it('returns response as string', () => {
+    const response = makeResponse('200 OK', 'hi', 'plain');
+    expect(response).toEqual(`HTTP/1.1 200 OK
+      Date: ${new Date().toISOString()}
+      Server: Apache
+      Accept-Ranges: bytes
+      Content-Length: Buffer.from4
+      Content-Type: text/plain
+    
+      hi
+  `);
+
+  // given status and content, getitng the type yet 
   });
 });
