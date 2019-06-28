@@ -1,4 +1,4 @@
-const { makeResponse } = require('../lib/makeResponse');
+const { makeResponse } = require('../utils/makeResponse');
 
 describe('makes response', () => {
   it('returns response as string', () => {

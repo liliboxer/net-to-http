@@ -1,4 +1,4 @@
-const { parseHttpPacket } = require('../lib/parseHttpPacket');
+const { parseHttpPacket } = require('../utils/parseHttpPacket');
 
 describe('http', () => {
   it('returns method and path', () => {
